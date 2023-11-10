@@ -2,6 +2,7 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const methodOverride = require("method-override");
 const bcrypt = require("bcryptjs");
+const routes = require("./routes");
 const app = express();
 const PORT = 3000;
 // handlebars設定
@@ -11,9 +12,8 @@ app.set("view engine", "hbs");
 app.use(express.urlencoded({ extended: true }));
 // 前後分離的架構下，前後端約定好以 JSON 格式來交換資料
 app.use(methodOverride("_method"));
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
+app.use(express.static("public"));
+app.use(routes);
 app.listen(PORT, () => {
   console.log(`App is running on http://localhost:${PORT}`);
 });
