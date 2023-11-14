@@ -3,6 +3,7 @@ const exphbs = require("express-handlebars");
 const methodOverride = require("method-override");
 const flash = require("connect-flash");
 const session = require("express-session");
+const passport = require("./config/passport");
 const routes = require("./routes");
 const app = express();
 const PORT = 3000;
@@ -18,6 +19,8 @@ app.use(express.static("public"));
 app.use(
   session({ secret: SESSION_SECRET, resave: false, saveUninitialized: false })
 );
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(flash());
 app.use((req, res, next) => {
   res.locals.success_messages = req.flash("success_messages");

@@ -1,0 +1,41 @@
+<div style="max-width: 400px; margin: auto;">
+  <h2 style="color: white; text-align: center;">Sign In</h2>
+  {{> messages}}
+  <form action="/signin" method="POST">
+    <div class="mb-3">
+      <label
+        for="account"
+        class="form-label"
+        style="color: white;"
+      >Account</label>
+      <input
+        type="text"
+        class="form-control"
+        id="account"
+        name="account"
+        required
+        style="color: white; background-color: transparent; border: 1px solid white;"
+      />
+    </div>
+    <div class="mb-3">
+      <label
+        for="password"
+        class="form-label"
+        style="color: white;"
+      >Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        required
+        style="color: white; background-color: transparent; border: 1px solid white;"
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      style="background-color: rgba(255, 255, 255, 0.5); color: white; border: none;"
+    >Sign In</button>
+  </form>
+</div>

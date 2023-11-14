@@ -34,6 +34,18 @@ const userController = {
       next(error);
     }
   },
+  signInPage: (req, res) => {
+    res.render("signin");
+  },
+  signIn: (req, res) => {
+    req.flash("success_messages", "Successfully Logged In!");
+    res.redirect("/");
+  },
+  logout: (req, res) => {
+    req.flash("success_messages", "Successfully Logged Out!");
+    req.logout();
+    res.redirect("/signin");
+  },
   testPage: (req, res) => {
     res.render("test");
   },
