@@ -14,7 +14,7 @@ router.post(
   }),
   userController.signIn
 );
-router.get("/logout", userController.logout);
+router.post("/logout", userController.logout);
 router.get("/test", userController.testPage);
 router.get("/", homeController.getHomePage);
 router.use("/", generalErrorHandler);

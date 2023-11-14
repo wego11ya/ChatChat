@@ -41,10 +41,14 @@ const userController = {
     req.flash("success_messages", "Successfully Logged In!");
     res.redirect("/");
   },
-  logout: (req, res) => {
-    req.flash("success_messages", "Successfully Logged Out!");
-    req.logout();
-    res.redirect("/signin");
+  logout: (req, res, next) => {
+    req.logout(function (err) {
+      if (err) {
+        return next(err);
+      }
+      req.flash("success_messages", "Successfully Logged Out!");
+      res.redirect("/signin");
+    });
   },
   testPage: (req, res) => {
     res.render("test");
