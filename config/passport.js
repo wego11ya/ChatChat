@@ -6,18 +6,18 @@ const { User } = require("../models");
 passport.use(
   new LocalStrategy(
     {
-      usernameField: "account",
+      usernameField: "email",
       passwordField: "password",
       passReqToCallback: true,
     },
-    async (req, account, password, cb) => {
+    async (req, email, password, cb) => {
       try {
-        const user = await User.findOne({ where: { account } });
+        const user = await User.findOne({ where: { email } });
         if (!user) {
           return cb(
             null,
             false,
-            req.flash("error_messages", "Incorrect account or password!")
+            req.flash("error_messages", "Incorrect email address or password!")
           );
         }
         const isMatch = await bcrypt.compare(password, user.password);
