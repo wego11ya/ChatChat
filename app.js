@@ -1,4 +1,8 @@
 const express = require("express");
+// Socket.io Initialization
+const { createServer } = require("http");
+const { Server } = require("socket.io");
+
 const exphbs = require("express-handlebars");
 const methodOverride = require("method-override");
 const flash = require("connect-flash");
@@ -7,14 +11,16 @@ const passport = require("./config/passport");
 const { getUser } = require("./helpers/auth-helpers");
 const routes = require("./routes");
 const app = express();
+// Socket.io Initialization
+const httpServer = createServer(app);
+const io = new Server(httpServer);
+
 const PORT = 3000;
 const SESSION_SECRET = "secret";
-// handlebars設定
+
 app.engine("hbs", exphbs({ defaultLayout: "main", extname: ".hbs" }));
 app.set("view engine", "hbs");
-// 使用body-parser Express.js 要靠 body-parser 來幫忙解析 request body，才能成功把表單資料處理成 req.body
 app.use(express.urlencoded({ extended: true }));
-// 前後分離的架構下，前後端約定好以 JSON 格式來交換資料
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
 app.use(
@@ -30,6 +36,6 @@ app.use((req, res, next) => {
   next();
 });
 app.use(routes);
-app.listen(PORT, () => {
+httpServer.listen(PORT, () => {
   console.log(`App is running on http://localhost:${PORT}`);
 });
