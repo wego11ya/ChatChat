@@ -36,6 +36,9 @@ app.use((req, res, next) => {
   next();
 });
 app.use(routes);
+
+require("./controllers/socket-controller")(io);
+
 httpServer.listen(PORT, () => {
   console.log(`App is running on http://localhost:${PORT}`);
 });

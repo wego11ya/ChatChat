@@ -2,6 +2,9 @@ const router = require("express").Router();
 const passport = require("../config/passport");
 const homeController = require("../controllers/home-controller");
 const userController = require("../controllers/user-controller");
+const socketController = require("../controllers/socket-controller");
+const chatController = require("../controllers/chat-controller");
+
 const { authenticated } = require("../middleware/auth");
 const { generalErrorHandler } = require("../middleware/error-handler");
 router.get("/signup", userController.signUpPage);
@@ -15,6 +18,7 @@ router.post(
   }),
   userController.signIn
 );
+router.get("/public-chatroom", chatController.getPublicChatroom);
 router.post("/logout", userController.logout);
 router.get("/test", userController.testPage);
 router.get("/", homeController.getHomePage);

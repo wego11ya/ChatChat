@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+      <ul id="messages" class="list-unstyled">
+        <!-- 聊天消息將被動態添加到這裡 -->
+      </ul>
+    </div>
+  </div>
+  <form id="message-form" class="mt-3">
+    <div class="input-group">
+      <input
+        id="message-input"
+        type="text"
+        class="form-control"
+        placeholder="輸入消息..."
+        autocomplete="off"
+      />
+      <button type="submit" class="btn btn-primary">發送</button>
+    </div>
+  </form>
+</div>
+<!-- 引入 socket.io -->
+<script src="/socket.io/socket.io.js"></script>
+<!-- 引入自定義的 chatroom.js -->
+<script src="/path/to/chatroom.js"></script>
