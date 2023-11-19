@@ -1,0 +1,43 @@
+<div style="max-width: 400px; margin: auto;">
+  <h2 style="color: white; text-align: center;">User Profile</h2>
+  {{> messages}}
+  <div class="user-profile">
+    <div class="mb-3 text-center">
+      {{#if currentUser.avatar}}
+        <img src="{{currentUser.avatar}}" alt="Avatar" class="user-avatar" style="border-radius: 50%; width: 150px; height: 150px;">
+      {{else}}
+        <img src="/images/default-avatar.jpg" alt="Default Avatar" class="user-avatar" style="border-radius: 50%; width: 150px; height: 150px;">
+      {{/if}}
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label" style="color: white;">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        value="{{currentUser.name}}"
+        disabled
+        style="color: white; background-color: transparent; border: 1px solid white;"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label" style="color: white;">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        value="{{currentUser.email}}"
+        disabled
+        style="color: white; background-color: transparent; border: 1px solid white;"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="introduction" class="form-label" style="color: white;">Introduction</label>
+      <textarea class="form-control" id="introduction" name="introduction" disabled rows="3" style="color: white; background-color: transparent; border: 1px solid white;">{{currentUser.introduction}}</textarea>
+    </div>
+    <!-- Edit Link -->
+    <a href="/users/current_user/edit" class="btn btn-primary" style="background-color: rgba(255, 255, 255, 0.5); color: white; border: none;">Edit</a>
+  </div>
+</div>

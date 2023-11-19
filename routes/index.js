@@ -4,9 +4,10 @@ const homeController = require("../controllers/home-controller");
 const userController = require("../controllers/user-controller");
 const socketController = require("../controllers/socket-controller");
 const chatController = require("../controllers/chat-controller");
-
 const { authenticated } = require("../middleware/auth");
 const { generalErrorHandler } = require("../middleware/error-handler");
+const upload = require("../middleware/multer");
+
 router.get("/signup", userController.signUpPage);
 router.post("/signup", userController.signUp);
 router.get("/signin", userController.signInPage);
@@ -18,8 +19,20 @@ router.post(
   }),
   userController.signIn
 );
-router.get("/public-chatroom", chatController.getPublicChatroom);
 router.post("/logout", userController.logout);
+router.get(
+  "/users/current_user/edit",
+  authenticated,
+  userController.editCurrentUser
+);
+router.get("/users/current_user", authenticated, userController.getCurrentUser);
+router.put(
+  "/users/current_user",
+  authenticated,
+  upload.single("avatar"),
+  userController.putCurrentUser
+);
+router.get("/public-chatroom", chatController.getPublicChatroom);
 router.get("/test", userController.testPage);
 router.get("/", homeController.getHomePage);
 router.use("/", generalErrorHandler);

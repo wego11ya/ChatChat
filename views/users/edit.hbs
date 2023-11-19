@@ -1,0 +1,34 @@
+<div style="max-width: 400px; margin: auto;">
+  <h2 style="color: white; text-align: center;">Edit Profile</h2>
+  {{> messages}}
+  <form action="/users/current_user?_method=PUT" method="POST" enctype="multipart/form-data">
+    <div class="mb-3 text-center">
+      {{#if currentUser.avatar}}
+        <img src="{{currentUser.avatar}}" alt="Avatar" class="user-avatar" style="border-radius: 50%; width: 150px; height: 150px;">
+      {{else}}
+        <img src="/images/default-avatar.jpg" alt="Default Avatar" class="user-avatar" style="border-radius: 50%; width: 150px; height: 150px;">
+      {{/if}}
+      <div class="mb-3">
+        <label for="avatar" class="form-label" style="color: white;">Avatar</label>
+        <input type="file" class="form-control" id="avatar" name="avatar" accept="image/*">
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label" style="color: white;">Name</label>
+      <input type="text" class="form-control" id="name" name="name" value="{{currentUser.name}}" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label" style="color: white;">Email address</label>
+      <input type="email" class="form-control" id="email" name="email" value="{{currentUser.email}}" required>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label" style="color: white;">New Password (leave blank if you do not wish to change it)</label>
+      <input type="password" class="form-control" id="password" name="password">
+    </div>
+    <div class="mb-3">
+      <label for="introduction" class="form-label" style="color: white;">Introduction</label>
+      <textarea class="form-control" id="introduction" name="introduction" rows="3">{{currentUser.introduction}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" style="background-color: rgba(255, 255, 255, 0.5); color: white; border: none;">Update</button>
+  </form>
+</div>
