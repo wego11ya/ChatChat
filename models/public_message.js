@@ -4,13 +4,13 @@ module.exports = (sequelize, DataTypes) => {
   class Public_Message extends Model {
     static associate(models) {
       Public_Message.belongsTo(models.User, {
-        foreignKey: "UserId",
+        foreignKey: "userId",
       });
     }
   }
   Public_Message.init(
     {
-      UserId: DataTypes.INTEGER,
+      userId: DataTypes.INTEGER,
       message: DataTypes.TEXT,
     },
     {
