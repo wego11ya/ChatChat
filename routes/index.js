@@ -32,7 +32,7 @@ router.put(
   upload.single("avatar"),
   userController.putCurrentUser
 );
-router.get("/public-chatroom", chatController.getPublicChatroom);
+router.get("/public-chatroom", authenticated, chatController.getPublicChatroom);
 router.get("/test", userController.testPage);
 router.get("/", homeController.getHomePage);
 router.use("/", generalErrorHandler);

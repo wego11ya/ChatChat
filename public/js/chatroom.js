@@ -7,6 +7,7 @@ document
   .addEventListener("submit", function (e) {
     e.preventDefault();
     const message = document.getElementById("message-input").value;
+
     if (message) {
       socket.emit("new message", message);
       document.getElementById("message-input").value = "";

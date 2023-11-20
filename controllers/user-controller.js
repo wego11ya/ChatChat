@@ -96,7 +96,7 @@ const userController = {
         avatar: avatarFilePath || currentUser.avatar,
       });
       req.flash("success_messages", "Successfully updated profile!");
-      return res.redirect(`/users/current_user`);
+      return res.redirect(`/users/current-user`);
     } catch (error) {
       next(error);
     }
