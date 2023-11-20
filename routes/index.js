@@ -25,7 +25,7 @@ router.get(
   authenticated,
   userController.editCurrentUser
 );
-router.get("/users/current_user", authenticated, userController.getCurrentUser);
+router.get("/users/current-user", authenticated, userController.getCurrentUser);
 router.put(
   "/users/current_user",
   authenticated,
