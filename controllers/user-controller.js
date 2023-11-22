@@ -83,8 +83,6 @@ const userController = {
       const currentUser = await User.findByPk(getUser(req).id);
       const { file } = req;
       const avatarFilePath = await imgurFileHandler(file);
-      console.log("req.file:", req.file);
-      console.log("Avatar File Path:", avatarFilePath);
       if (!currentUser) throw new Error("User not found.");
       const updatedUser = await currentUser.update({
         name,

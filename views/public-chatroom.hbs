@@ -1,9 +1,12 @@
 <div class="container mt-4">
   <div class="card">
     <div class="card-body">
-      <ul id="messages" class="list-unstyled">
-        <!-- 聊天消息將被動態添加到這裡 -->
-      </ul>
+      {{#each publicMessages}}
+        <ul id="messages" class="list-unstyled">
+          <!-- 聊天消息將被動態添加到這裡 -->
+          <li>{{this.message}}</li>
+        </ul>
+      {{/each}}
     </div>
   </div>
   <form id="message-form" class="mt-3">
