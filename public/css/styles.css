@@ -7,3 +7,34 @@
   background-attachment: fixed;
   background-position: center;
 }
+
+#messages .media {
+  align-items: center;
+}
+
+#messages .media img {
+  width: 48px;
+  height: 48px;
+}
+
+#messages .media-body {
+  flex: 1; /* Ensures that the media body expands to fill the space */
+  background-color: #f4f4f8;
+  border-radius: 15px;
+  padding: 10px;
+  margin-right: 10px; /* Adds some space before the timestamp */
+}
+
+#messages .media-body > div:first-child {
+  font-weight: bold; /* Makes the user name bold */
+}
+
+#messages small {
+  flex-shrink: 0; /* Prevents the timestamp from shrinking */
+  width: auto; /* Gives the timestamp its own natural space */
+  margin-left: 10px; /* Adds some space after the message bubble */
+}
+
+#messages li {
+  display: flex; /* Aligns the avatar, message bubble, and timestamp horizontally */
+}

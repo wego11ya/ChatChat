@@ -1,12 +1,23 @@
 <div class="container mt-4">
   <div class="card">
     <div class="card-body">
-      {{#each publicMessages}}
-        <ul id="messages" class="list-unstyled">
-          <!-- 聊天消息將被動態添加到這裡 -->
-          <li>{{this.message}}</li>
-        </ul>
-      {{/each}}
+      <ul id="messages" class="list-unstyled">
+        {{#each publicMessages}}
+          <li class="media mb-3">
+            <img
+              src="{{this.User.avatar}}"
+              class="align-self-start mr-3 rounded-circle"
+              alt="User Avatar"
+              style="width: 48px; height: 48px;"
+            />
+            <div class="media-body">
+              <div class="mt-0 mb-1">{{this.User.name}}</div>
+              <div>{{this.message}}</div>
+            </div>
+            <small class="text-muted">3:18 PM</small>
+          </li>
+        {{/each}}
+      </ul>
     </div>
   </div>
   <form id="message-form" class="mt-3">
@@ -15,10 +26,10 @@
         id="message-input"
         type="text"
         class="form-control"
-        placeholder="輸入消息..."
+        placeholder="Enter message..."
         autocomplete="off"
       />
-      <button type="submit" class="btn btn-primary">發送</button>
+      <button type="submit" class="btn btn-primary">Send</button>
     </div>
   </form>
 </div>
