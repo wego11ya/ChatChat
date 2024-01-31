@@ -32,8 +32,8 @@ router.put(
   upload.single("avatar"),
   userController.putCurrentUser
 );
+router.get("/users/:id", authenticated, userController.getUser);
 router.get("/public-chatroom", authenticated, chatController.getPublicChatroom);
-router.get("/test", userController.testPage);
 router.get("/", homeController.getHomePage);
 router.use("/", generalErrorHandler);
 module.exports = router;

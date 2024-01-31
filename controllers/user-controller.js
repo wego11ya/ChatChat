@@ -51,14 +51,14 @@ const userController = {
   },
   getCurrentUser: async (req, res, next) => {
     try {
-      const currentUser = await User.findByPk(getUser(req).id, {
+      const user = await User.findByPk(getUser(req).id, {
         attributes: {
           exclude: ["password"],
         },
         raw: true,
       });
-      if (!currentUser) throw new Error("User not found.");
-      return res.render("users/profile", { currentUser });
+      if (!user) throw new Error("User not found.");
+      return res.render("users/profile", { user });
     } catch (error) {
       next(error);
     }
@@ -99,8 +99,20 @@ const userController = {
       next(error);
     }
   },
-  testPage: (req, res) => {
-    res.render("test");
+  getUser: async (req, res, next) => {
+    try {
+      const id = getUser(req).id;
+      const user = await User.findByPk(req.params.id, {
+        attributes: {
+          exclude: ["password"],
+        },
+        raw: true,
+      });
+      if (!user) throw new Error("User not found.");
+      return res.render("users/profile", { user });
+    } catch (error) {
+      next(error);
+    }
   },
 };
 module.exports = userController;

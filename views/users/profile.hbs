@@ -3,8 +3,8 @@
   {{> messages}}
   <div class="user-profile">
     <div class="mb-3 text-center">
-      {{#if currentUser.avatar}}
-        <img src="{{currentUser.avatar}}" alt="Avatar" class="user-avatar" style="border-radius: 50%; width: 150px; height: 150px;">
+      {{#if user.avatar}}
+        <img src="{{user.avatar}}" alt="Avatar" class="user-avatar" style="border-radius: 50%; width: 150px; height: 150px;">
       {{else}}
         <img src="/images/default-avatar.jpg" alt="Default Avatar" class="user-avatar" style="border-radius: 50%; width: 150px; height: 150px;">
       {{/if}}
@@ -16,7 +16,7 @@
         class="form-control"
         id="name"
         name="name"
-        value="{{currentUser.name}}"
+        value="{{user.name}}"
         disabled
         style="color: white; background-color: transparent; border: 1px solid white;"
       />
@@ -28,14 +28,14 @@
         class="form-control"
         id="email"
         name="email"
-        value="{{currentUser.email}}"
+        value="{{user.email}}"
         disabled
         style="color: white; background-color: transparent; border: 1px solid white;"
       />
     </div>
     <div class="mb-3">
       <label for="introduction" class="form-label" style="color: white;">Introduction</label>
-      <textarea class="form-control" id="introduction" name="introduction" disabled rows="3" style="color: white; background-color: transparent; border: 1px solid white;">{{currentUser.introduction}}</textarea>
+      <textarea class="form-control" id="introduction" name="introduction" disabled rows="3" style="color: white; background-color: transparent; border: 1px solid white;">{{user.introduction}}</textarea>
     </div>
     <!-- Edit Link -->
     <a href="/users/current_user/edit" class="btn btn-primary" style="background-color: rgba(255, 255, 255, 0.5); color: white; border: none;">Edit</a>

@@ -4,17 +4,19 @@
       <ul id="messages" class="list-unstyled">
         {{#each publicMessages}}
           <li class="media mb-3">
-            <img
-              src="{{this.User.avatar}}"
-              class="align-self-start mr-3 rounded-circle"
-              alt="User Avatar"
-              style="width: 48px; height: 48px;"
-            />
+            <a href="/users/{{this.userId}}">
+              <img
+                src="{{this.User.avatar}}"
+                class="align-self-start mr-3 rounded-circle"
+                alt="User Avatar"
+                style="width: 48px; height: 48px;"
+              />
+            </a>
             <div class="media-body">
               <div class="mt-0 mb-1">{{this.User.name}}</div>
               <div>{{this.message}}</div>
             </div>
-            <small class="text-muted">3:18 PM</small>
+            <small class="text-muted">{{this.createdAt}}</small>
           </li>
         {{/each}}
       </ul>
