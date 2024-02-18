@@ -21,7 +21,6 @@ const chatController = {
         raw: true,
       });
       if (!currentUser) throw new Error("User not found.");
-      console.log(publicMessages);
       return res.render("public-chatroom", { currentUser, publicMessages });
     } catch (error) {
       next(error);
