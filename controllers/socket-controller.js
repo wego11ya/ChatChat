@@ -13,20 +13,21 @@ module.exports = (io) => {
           raw: true,
         });
         if (!user) throw new Error("User not found.");
+        // Create message and get the creation time
+        const createdMessage = await Public_Message.create({
+          userId,
+          message: msg,
+        });
 
         const messageData = {
           userId,
           message: msg,
           User: user, // Add user info to the message
+          createdAt: createdMessage.createdAt, // Get the creation time of the message
         };
 
-        // Emit the message with user info
+        // Emit the message with user info and creation time
         io.emit("new message", messageData);
-
-        await Public_Message.create({
-          userId,
-          message: msg,
-        });
       } catch (error) {
         next(error);
       }
