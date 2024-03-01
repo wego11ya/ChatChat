@@ -8,6 +8,7 @@ const methodOverride = require("method-override");
 const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("./config/passport");
+const handlebarsHelpers = require("./helpers/handlebars-helpers");
 const { getUser } = require("./helpers/auth-helpers");
 const routes = require("./routes");
 const app = express();
@@ -18,7 +19,10 @@ const io = new Server(httpServer);
 const PORT = 3000;
 const SESSION_SECRET = "secret";
 
-app.engine("hbs", exphbs({ defaultLayout: "main", extname: ".hbs" }));
+app.engine(
+  "hbs",
+  exphbs({ defaultLayout: "main", extname: ".hbs", helpers: handlebarsHelpers })
+);
 app.set("view engine", "hbs");
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));

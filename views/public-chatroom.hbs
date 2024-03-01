@@ -16,7 +16,9 @@
               <div class="mt-0 mb-1">{{this.User.name}}</div>
               <div>{{this.message}}</div>
             </div>
-            <small class="text-muted">{{this.createdAt}}</small>
+            <small class="text-muted">{{relativeTimeFromNow
+                this.createdAt
+              }}</small>
           </li>
         {{/each}}
       </ul>
