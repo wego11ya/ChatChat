@@ -37,6 +37,12 @@
     </div>
   </form>
 </div>
+<!-- 引入 dayjs -->
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js"
+></script>
+<script>dayjs.extend(window.dayjs_plugin_relativeTime)</script>
 <!-- 引入 socket.io -->
 <script src="/socket.io/socket.io.js"></script>
 <!-- 引入自定義的 chatroom.js -->
