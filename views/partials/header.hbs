@@ -41,6 +41,38 @@
             </li>
           </ul>
         </div>
+      {{else}}
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+            <li class="nav-item me-3">
+              <form action="/signin" method="POST">
+                <button
+                  class="btn btn-secondary my-sm-0 my-2"
+                  type="submit"
+                >Sign In</button>
+              </form>
+            </li>
+            <li class="nav-item">
+              <form action="/signup" method="GET">
+                <button
+                  class="btn btn-secondary my-sm-0 my-2"
+                  type="submit"
+                >Sign Up</button>
+              </form>
+            </li>
+          </ul>
+        </div>
       {{/if}}
     </div>
   </nav>
