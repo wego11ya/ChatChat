@@ -26,5 +26,7 @@ const chatController = {
       next(error);
     }
   },
+  getAIChat: (req, res) => res.render("ai-chat"),
+  getPrivateMessages: (req, res) => res.render("private-messages"),
 };
 module.exports = chatController;

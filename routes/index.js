@@ -34,6 +34,12 @@ router.put(
 );
 router.get("/users/:id", authenticated, userController.getUser);
 router.get("/public-chatroom", authenticated, chatController.getPublicChatroom);
+router.get("/ai-chat", authenticated, chatController.getAIChat);
+router.get(
+  "/private-messages",
+  authenticated,
+  chatController.getPrivateMessages
+);
 router.get("/", homeController.getHomePage);
 router.use("/", generalErrorHandler);
 module.exports = router;
