@@ -13,8 +13,8 @@ module.exports = {
           password: bcrypt.hashSync("12345678", 10),
           avatar: faker.image.avatar(),
           introduction: faker.lorem.paragraph(2),
-          createdAt: new Date(),
-          updatedAt: new Date(),
+          created_at: new Date(),
+          updated_at: new Date(),
         };
       })
     );
