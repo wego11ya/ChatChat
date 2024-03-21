@@ -4,7 +4,7 @@ Welcome to **Chat Chat**, a simple and fun app that lets you talk to both people
 
 - **Chat with AI**: Ever wanted a friend who's always there? My AI chat buddy is ready to chat anytime you are. Ask it about the weather, tell it a joke, or share your thoughts. It's designed to understand you and keep the conversation going.
 
-- **Public Chat Rooms**: Dive into any public chat rooms to talk about your favorite topics, share ideas, or just have fun chatting with others. These rooms are open to everyone and cover a variety of interests, so you’re sure to find something you like.
+- **Public Chat Rooms**: Join this chat room for easy chatting. Talk, share ideas, or have fun with others. Open to everyone, it's simple to use and join.
 
 - **Super Easy to Use**: I believe chatting should be straightforward and enjoyable. That's why I made Chat Chat super easy to dive into. No complicated setups, just open the app and start the conversation.
 
