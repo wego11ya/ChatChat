@@ -1,14 +1,26 @@
-# Product Features
+# Introduction
 
-Welcome to **Chat Chat**, a simple and fun app that lets you talk to both people and **AI**. Whether you’re looking to make new friends or just have a chat with this smart AI, I've got you covered. Here's what makes Chat Chat special:
+Welcome to **Chat Chat**, a simple and efficient multi-user real-time chat application. This full-stack project leverages WebSocket technology to enable real-time messaging, ensuring seamless and instantaneous communication. All chat messages are stored in a relational database for persistence and reliability.
 
-- **Chat with AI**: Ever wanted a friend who's always there? My AI chat buddy is ready to chat anytime you are. Ask it about the weather, tell it a joke, or share your thoughts. It's designed to understand you and keep the conversation going.
+My goal is to continuously improve Chat Chat by adding more features and enhancements that will make your chatting experience even better. Start using Chat Chat today and enjoy effortless real-time communication!
 
-- **Public Chat Rooms**: Join this chat room for easy chatting. Talk, share ideas, or have fun with others. Open to everyone, it's simple to use and join.
+# WebSocket Chat Application Architecture
 
-- **Super Easy to Use**: I believe chatting should be straightforward and enjoyable. That's why I made Chat Chat super easy to dive into. No complicated setups, just open the app and start the conversation.
+The diagram below illustrates the architecture of my WebSocket chat application.
 
-My goal is to keep making Chat Chat better, adding more features that you’ll love. Start chatting today and see how much fun it is!
+![WebSocket Chat Application Architecture](public/images/WebSocket%20Chat%20Application%20Architecture.png)
+
+1. `chat-controller` queries the database for historical messages.
+2. `chat-controller` responds to HTTP GET requests and returns the chat room page.
+3. The front-end loads the page and sets up event listeners.
+4. When a user sends a message, the front-end sends it to the back-end via `socket.emit()`.
+5. `socket-controller` writes the message to the database.
+6. `socket-controller` sends the message (including the `createdAt` timestamp) to the front-end.
+7. The front-end receives the new message and updates the chat room display via DOM manipulation.
+
+# Demo
+
+![ChatChat Demo](public/images/ChatChat%20Demo.gif)
 
 # Install Locally
 
